@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Box Example</title>
+    <style>
+        /* Optional CSS styles for dropdown box */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        .dropdown-list {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: #fff;
+            display: none;
+        }
+        
+        .dropdown-list-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .dropdown-list-item:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="dropdown">
+            <div class="dropdown-select">Select an option</div>
+            <div class="dropdown-list">
+                <div class="dropdown-list-item">Option 1</div>
+                <div class="dropdown-list-item">Option 2</div>
+                <div class="dropdown-list-item">Option 3</div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // JavaScript code to handle dropdown behavior
+        const dropdownSelect = document.querySelector('.dropdown-select');
+        const dropdownList = document.querySelector('.dropdown-list');
+        const dropdownItems = document.querySelectorAll('.dropdown-list-item');
+        
+        dropdownSelect.addEventListener('click', function() {
+            dropdownList.style.display = 'block';
+        });
+        
+        dropdownItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                dropdownSelect.textContent = item.textContent;
+                dropdownList.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
